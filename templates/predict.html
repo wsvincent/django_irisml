@@ -30,6 +30,7 @@
 </head>
 <body>
     <h2>Iris Species Predictor</h2>
+    <p class="note">Note: Please enter values in the range of 0-5.</p>
     <form method="post">
         {% csrf_token %}
         <input type="number" step="any" name="sepal_length" placeholder="Sepal Length" required>
