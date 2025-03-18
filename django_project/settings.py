@@ -19,7 +19,13 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG", default=False)
 
-ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]  # new
+ALLOWED_HOSTS = [
+    "djangofordatascience.com",
+    "www.djangofordatascience.com",
+    "django-irisml-6cdb65e3e39d.herokuapp.com",
+    "localhost",
+    "127.0.0.1",
+]  # new
 
 CSRF_TRUSTED_ORIGINS = ["https://*.herokuapp.com"]  # new
 
