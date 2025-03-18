@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Iris Species Predictor</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="number" step="any" name="sepal_length" placeholder="Sepal Length" required>
+        <input type="number" step="any" name="sepal_width" placeholder="Sepal Width" required>
+        <input type="number" step="any" name="petal_length" placeholder="Petal Length" required>
+        <input type="number" step="any" name="petal_width" placeholder="Petal Width" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            <h3>Prediction: {{ prediction }}</h3>
+            <p><strong>Inputs:</strong></p>
+            <ul>
+                <li>Sepal Length: {{ form_data.sepal_length }}</li>
+                <li>Sepal Width: {{ form_data.sepal_width }}</li>
+                <li>Petal Length: {{ form_data.petal_length }}</li>
+                <li>Petal Width: {{ form_data.petal_width }}</li>
+            </ul>
+        </div>
+    {% endif %}
+</body>
+</html>

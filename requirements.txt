@@ -1,0 +1,11 @@
+asgiref==3.8.1
+black==25.1.0
+click==8.1.8
+Django==5.1.7
+joblib==1.4.2
+mypy-extensions==1.0.0
+numpy==2.2.4
+packaging==24.2
+pathspec==0.12.1
+platformdirs==4.3.6
+sqlparse==0.5.3
