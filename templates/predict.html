@@ -1,55 +1,49 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iris Prediction</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 400px;
-            margin: 50px auto;
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        input, button {
-            padding: 10px;
-            font-size: 16px;
-        }
-        button {
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
     <h2>Iris Species Predictor</h2>
     <p class="note">Note: Please enter values in the range of 0-5.</p>
     <form method="post">
         {% csrf_token %}
-        <input type="number" step="any" name="sepal_length" placeholder="Sepal Length" required>
-        <input type="number" step="any" name="sepal_width" placeholder="Sepal Width" required>
-        <input type="number" step="any" name="petal_length" placeholder="Petal Length" required>
-        <input type="number" step="any" name="petal_width" placeholder="Petal Width" required>
+        <input type="number" step="any" min="0" max="5" name="sepal_length" placeholder="Sepal Length" required>
+        <input type="number" step="any" min="0" max="5" name="sepal_width" placeholder="Sepal Width" required>
+        <input type="number" step="any" min="0" max="5" name="petal_length" placeholder="Petal Length" required>
+        <input type="number" step="any" min="0" max="5" name="petal_width" placeholder="Petal Width" required>
         <button type="submit">Predict</button>
     </form>
 
     {% if prediction %}
         <div class="result">
-            <h3>Prediction: {{ prediction }}</h3>
-            <p><strong>Inputs:</strong></p>
-            <ul>
-                <li>Sepal Length: {{ form_data.sepal_length }}</li>
-                <li>Sepal Width: {{ form_data.sepal_width }}</li>
-                <li>Petal Length: {{ form_data.petal_length }}</li>
-                <li>Petal Width: {{ form_data.petal_width }}</li>
-            </ul>
+            <div class="result-content">
+                <div class="result-image">
+                    {% if prediction == 'Iris-setosa' %}
+                        <img src="{% static 'img/iris_setosa.jpg' %}" alt="Iris Setosa">
+                    {% elif prediction == 'Iris-versicolor' %}
+                        <img src="{% static 'img/iris_versicolor.jpeg' %}" alt="Iris Versicolor">
+                    {% elif prediction == 'Iris-virginica' %}
+                        <img src="{% static 'img/iris_virginica.jpg' %}" alt="Iris Virginica">
+                    {% endif %}
+                </div>
+                <div class="result-details">
+                    <h3 class="prediction-name">Prediction: {{ prediction|title }}</h3>
+                    <div class="input-values">
+                        <p><strong>Your Measurements:</strong></p>
+                        <ul>
+                            <li>Sepal Length: {{ form_data.sepal_length }} cm</li>
+                            <li>Sepal Width: {{ form_data.sepal_width }} cm</li>
+                            <li>Petal Length: {{ form_data.petal_length }} cm</li>
+                            <li>Petal Width: {{ form_data.petal_width }} cm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     {% endif %}
 </body>

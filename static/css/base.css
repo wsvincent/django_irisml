@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #388E3C;
+}
+
+.note {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.result-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.result-image {
+    flex: 0 0 auto;
+}
+
+.result-image img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.result-details {
+    flex: 1 1 auto;
+    text-align: left;
+}
+
+.prediction-name {
+    color: #2E7D32;
+    margin-top: 0;
+}
+
+.input-values {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.input-values ul {
+    padding-left: 20px;
+}
+
+/* Add media query for better mobile responsiveness */
+@media (max-width: 600px) {
+    .result-content {
+        flex-direction: column;
+    }
+
+    .result-details {
+        text-align: center;
+    }
+
+    .input-values {
+        text-align: left;
+    }
+}
