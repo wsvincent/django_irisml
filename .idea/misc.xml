@@ -5,4 +5,5 @@
     <option name="enabledOnSave" value="true" />
     <option name="sdkName" value="Python 3.13 (Django_IrisML)" />
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.13 (django_irisml)" project-jdk-type="Python SDK" />
 </project>
